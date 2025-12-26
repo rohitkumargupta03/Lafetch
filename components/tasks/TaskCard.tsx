@@ -45,7 +45,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({
 
       <div className="flex items-center justify-between text-xs">
         <div className="flex items-center space-x-2 bg-gray-50 dark:bg-[#241f42] px-3 py-1.5 rounded-lg border border-gray-200 dark:border-[#3b3561]">
-          <div className="w-5 h-5 rounded-full bg-linear-to-br from-primary to-secondary flex items-center justify-center text-white text-[10px] font-bold">
+          <div className="w-5 h-5 rounded-full bg-[linear-gradient(90deg,var(--primary),var(--secondary))] flex items-center justify-center text-white text-[10px] font-bold">
             {assignedUser?.name?.charAt(0).toUpperCase() || "?"}
           </div>
           <span className="font-medium text-gray-700 dark:text-gray-300">

@@ -88,7 +88,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         <div className="flex flex-col h-full">
           {/* Logo */}
           <div className="relative p-6 overflow-hidden">
-            <div className="absolute inset-0 bg-linear-to-br from-primary via-secondary to-cyan-500 opacity-90"></div>
+            <div className="absolute inset-0 bg-linear-to-br from-primary via-secondary to-blue-500 opacity-90"></div>
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIgMS44LTQgNC00czQgMS44IDQgNC0xLjggNC00IDQtNC0xLjgtNC00eiIvPjwvZz48L2c+PC9zdmc+')] opacity-30"></div>
             <div className="relative flex items-center justify-between">
               <div className="flex items-center space-x-3">
@@ -137,8 +137,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           <div className="p-4 mx-4 mt-4 rounded-2xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700/50">
             <div className="flex items-center space-x-3">
               <div className="relative">
-                <div className="h-12 w-12 rounded-xl bg-linear-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary/30">
-                  {user?.name.charAt(0).toUpperCase()}
+                <div className="h-12 w-12 rounded-xl bg-[linear-gradient(90deg,var(--primary),var(--secondary))] flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary/30">
+                  {user?.name?.charAt(0).toUpperCase()}
                 </div>
                 <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 border-2 border-white dark:border-gray-800 rounded-full shadow-sm"></div>
               </div>
@@ -185,9 +185,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
 
           {/* Navigation */}
           <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
-            <p className="px-3 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">
-              Navigation
-            </p>
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -197,7 +194,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                   group flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-300 relative overflow-hidden
                   ${
                     isActive(item.href)
-                      ? "bg-linear-to-r from-primary to-secondary text-white shadow-lg shadow-primary/30"
+                      ? "bg-[linear-gradient(90deg,var(--primary),var(--secondary))] text-white shadow-lg shadow-primary/30"
                       : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800/50"
                   }
                 `}
@@ -224,9 +221,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
             <div className="p-3 rounded-xl bg-gray-50 dark:bg-gray-800/30 border border-gray-200 dark:border-gray-700/50">
               <p className="text-xs text-gray-600 dark:text-gray-400 text-center">
                 © 2025 TaskFlow
-              </p>
-              <p className="text-xs text-gray-500 dark:text-gray-500 text-center mt-1">
-                v2.0.0 • Made with 💜
               </p>
             </div>
           </div>

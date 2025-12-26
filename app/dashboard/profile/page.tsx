@@ -26,7 +26,7 @@ export default function ProfilePage() {
             {/* Avatar */}
             <div className="flex justify-center">
               <div className="relative group">
-                <div className="h-32 w-32 rounded-2xl bg-linear-to-br from-primary via-secondary to-cyan-400 flex items-center justify-center text-white text-5xl font-bold shadow-2xl shadow-primary/30 ring-4 ring-white dark:ring-gray-800 group-hover:scale-105 transition-transform duration-300">
+                <div className="h-32 w-32 rounded-2xl bg-[linear-gradient(90deg,var(--primary),var(--secondary))] flex items-center justify-center text-white text-5xl font-bold shadow-2xl shadow-primary/30 ring-4 ring-white dark:ring-gray-800 group-hover:scale-105 transition-transform duration-300">
                   {user.name.charAt(0).toUpperCase()}
                 </div>
                 <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-emerald-500 border-4 border-white dark:border-gray-800 rounded-xl flex items-center justify-center shadow-lg">
@@ -75,8 +75,8 @@ export default function ProfilePage() {
                   <div
                     className={`w-8 h-8 rounded-lg flex items-center justify-center ${
                       user.role === "admin"
-                        ? "bg-linear-to-br from-amber-400 to-orange-500"
-                        : "bg-linear-to-br from-primary to-secondary"
+                        ? "bg-[linear-gradient(90deg,var(--primary),var(--secondary))] from-amber-400 to-orange-500"
+                        : "bg-[linear-gradient(90deg,var(--primary),var(--secondary))]"
                     }`}
                   >
                     {user.role === "admin" ? (

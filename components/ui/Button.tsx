@@ -26,7 +26,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variantStyles = {
       primary:
-        "bg-linear-to-r from-primary to-secondary text-white hover:from-primary-dark hover:to-secondary-dark focus:ring-primary shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30",
+        "bg-[linear-gradient(90deg,var(--primary),var(--secondary))] text-white hover:brightness-95 focus:ring-primary shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 border border-transparent",
       secondary:
         "bg-linear-to-r from-secondary to-purple-600 text-white hover:from-secondary-dark hover:to-purple-700 focus:ring-secondary shadow-lg shadow-secondary/25 hover:shadow-xl",
       danger:
