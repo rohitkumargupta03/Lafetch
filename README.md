@@ -1,315 +1,273 @@
 # Task Management Dashboard
 
-A modern, responsive task management dashboard built with **Next.js 14**, **TypeScript**, **TailwindCSS**, and **Redux Toolkit**. This application provides a complete task management system with role-based access control, featuring both admin and user roles.
+A modern task management system with role-based access control, built with Next.js 14, TypeScript, TailwindCSS, and Redux Toolkit.
 
-## 🚀 Features
+## 📋 What This App Does
 
-### Core Features
+- **Manage Tasks**: Create, view, edit, and track tasks with different statuses
+- **Role-Based Access**: Admin users can create and edit tasks, regular users can update task status
+- **Search & Filter**: Find tasks by title or filter by status (Pending, In Progress, Completed)
+- **Light/Dark Theme**: Toggle between themes with persistent settings
+- **Responsive Design**: Works on desktop, tablet, and mobile devices
 
-- ✅ **Authentication System**
-  - Login page with form validation (React Hook Form)
-  - Mock authentication with role-based access (Admin & User)
-  - Token storage in localStorage
-  - Protected routes with automatic redirection
-- ✅ **Dashboard Layout**
+---
 
-  - Responsive sidebar navigation
-  - Header with user info and theme toggle
-  - Mobile-friendly hamburger menu
-  - Smooth animations and transitions
+## 🚀 Quick Start (3 Steps)
 
-- ✅ **Task Management**
+### Step 1: Install Dependencies
 
-  - **Task List Page**:
+```powershell
+npm install
+```
 
-    - Display all tasks with title, description, status, assigned user, and dates
-    - Real-time search by task title
-    - Filter tasks by status (Pending, In Progress, Completed)
-    - Pagination support (6 tasks per page)
-    - Task statistics cards
-
-  - **Task Details View**:
-
-    - Modal-based detail view
-    - Full task information display
-    - Role-based editing:
-      - **Admin**: Can edit title, description, status, and assigned user
-      - **User**: Can only update task status
-    - Real-time updates
-
-  - **Create Task (Admin Only)**:
-    - Form with complete validation
-    - Assign tasks to specific users
-    - Set initial status
-    - Immediate task list update
-
-- ✅ **Theme Support**
-
-  - Light/Dark mode toggle
-  - System preference detection
-  - Persistent theme selection (localStorage)
-  - Smooth theme transitions
-
-- ✅ **Profile Page**
-  - View user information
-  - Display role and permissions
-  - User avatar with initials
-
-### Technical Highlights
-
-#### Architecture
-
-- **Clean Folder Structure**:
-  ```
-  task-management/
-  ├── app/                    # Next.js app directory
-  │   ├── dashboard/         # Dashboard pages
-  │   │   ├── page.tsx      # Main tasks page
-  │   │   └── profile/      # Profile page
-  │   ├── login/            # Authentication
-  │   ├── layout.tsx        # Root layout
-  │   └── page.tsx          # Home page (redirects)
-  ├── components/            # React components
-  │   ├── auth/             # Authentication components
-  │   ├── layout/           # Layout components (Sidebar, Header)
-  │   ├── tasks/            # Task-related components
-  │   ├── ui/               # Reusable UI components
-  │   └── providers/        # Context providers
-  ├── store/                # Redux Toolkit store
-  │   ├── slices/           # Redux slices
-  │   └── index.ts          # Store configuration
-  ├── lib/                  # Utilities and API layer
-  │   └── api.ts            # API abstraction
-  ├── hooks/                # Custom React hooks
-  ├── types/                # TypeScript definitions
-  └── db.json               # Mock API database
-  ```
-
-#### State Management
-
-- **Redux Toolkit** with proper slice organization
-- Async thunks for API calls
-- Type-safe with TypeScript
-- Separate slices for auth, tasks, and users
-
-#### API Abstraction Layer
-
-- Centralized API calls in `lib/api.ts`
-- No direct fetch calls in components
-- Error handling with custom ApiError class
-- Request/response type safety
-
-#### Reusable Components
-
-- `Button` - Multiple variants and sizes
-- `Input` - With label, error, and validation support
-- `Select` - Dropdown with error handling
-- `Textarea` - Multi-line input
-- `Modal` - Flexible modal with keyboard support
-- `Badge` - Status badges with color coding
-- `LoadingSpinner` - Loading states
-
-#### Form Validation
-
-- **React Hook Form** integration
-- Client-side validation
-- Real-time error messages
-- Accessible form controls
-
-#### Responsive Design
-
-- Mobile-first approach
-- Breakpoints: sm, md, lg
-- Touch-friendly interfaces
-- Optimized for all screen sizes
-
-## 📦 Installation
-
-### Prerequisites
-
-- Node.js 18+
-- npm or yarn
-
-### Setup Steps
-
-1. **Clone or Navigate to the Project**
-
-   ```powershell
-   cd "c:\Users\Yutrp User\Desktop\Lafetch\task-management"
-   ```
-
-2. **Install Dependencies**
-
-   ```powershell
-   npm install
-   ```
-
-3. **Environment Setup**
-   The `.env.local` file is already configured with:
-   ```
-   NEXT_PUBLIC_API_URL=http://localhost:3001
-   ```
-
-## 🚀 Running the Application
-
-### Option 1: Run Everything Together (Recommended)
+### Step 2: Start the Application
 
 ```powershell
 npm run dev:all
 ```
 
-This will start both the JSON Server API (port 3001) and Next.js dev server (port 3000).
+This starts both the mock API server and the Next.js app.
 
-### Option 2: Run Separately
+### Step 3: Open in Browser
 
-**Terminal 1 - Start JSON Server:**
+Visit **http://localhost:3000** and login with:
 
-```powershell
-npm run api
+**Admin Account:**
+
+- Email: `admin@test.com`
+- Password: `admin123`
+
+**User Account:**
+
+- Email: `user@test.com`
+- Password: `user123`
+
+---
+
+## 📖 How to Use
+
+### 1. **Login**
+
+- Go to the login page
+- Enter email and password
+- Click "Sign in"
+
+### 2. **View Tasks**
+
+- After login, you'll see the dashboard with all tasks
+- View task cards showing title, status, assigned user, and dates
+- See statistics at the top (total tasks, completed, pending, etc.)
+
+### 3. **Search & Filter Tasks**
+
+- Use the search box to find tasks by title
+- Use the status dropdown to filter (All, Pending, In Progress, Completed)
+- Navigate pages using pagination buttons
+
+### 4. **View Task Details**
+
+- Click on any task card
+- A modal opens showing full task information
+- Edit task details (based on your role)
+
+### 5. **Create New Task** (Admin Only)
+
+- Click the "Create Task" button
+- Fill in task title, description, assign to user, and set status
+- Click "Create Task" to save
+
+### 6. **Update Task**
+
+- **Admin**: Can edit title, description, status, and assigned user
+- **User**: Can only change task status
+- Changes save automatically
+
+### 7. **Toggle Theme**
+
+- Click the sun/moon icon in the header
+- Switch between light and dark mode
+
+### 8. **View Profile**
+
+- Click "Profile" in the sidebar
+- See your user information and permissions
+
+---
+
+## ✨ Key Features
+
+| Feature               | Admin | User |
+| --------------------- | ----- | ---- |
+| View all tasks        | ✅    | ✅   |
+| Search tasks          | ✅    | ✅   |
+| Filter by status      | ✅    | ✅   |
+| View task details     | ✅    | ✅   |
+| Update task status    | ✅    | ✅   |
+| Create new tasks      | ✅    | ❌   |
+| Edit task details     | ✅    | ❌   |
+| Assign tasks to users | ✅    | ❌   |
+
+---
+
+## 🔧 Technical Stack
+
+**Frontend:**
+
+- Next.js 14 (App Router)
+- React 19
+- TypeScript
+- TailwindCSS v4
+- Redux Toolkit
+- React Hook Form
+
+**Backend:**
+
+- JSON Server (Mock API)
+
+---
+
+## 📁 Project Structure
+
+```
+task-management/
+├── app/                    # Next.js pages
+│   ├── dashboard/         # Dashboard page (task list)
+│   ├── login/            # Login page
+│   └── profile/          # User profile page
+├── components/            # React components
+│   ├── auth/             # Protected route component
+│   ├── layout/           # Sidebar, Header
+│   ├── tasks/            # Task cards, modals
+│   └── ui/               # Buttons, inputs, modals
+├── store/                # Redux state management
+│   └── slices/           # Auth, tasks, users slices
+├── lib/                  # API functions
+├── hooks/                # Custom React hooks
+├── types/                # TypeScript types
+└── db.json               # Mock database
 ```
 
-**Terminal 2 - Start Next.js:**
+---
+
+## 🛠️ Available Scripts
 
 ```powershell
+# Start everything (recommended)
+npm run dev:all
+
+# Start only the Next.js app
 npm run dev
+
+# Start only the API server
+npm run api
+
+# Build for production
+npm run build
+
+# Start production server
+npm run start
 ```
 
-### Access the Application
+---
 
-- **Frontend**: http://localhost:3000
+## 🌐 Access URLs
+
+- **App**: http://localhost:3000
 - **API**: http://localhost:3001
+- **API Endpoints**: http://localhost:3001/tasks, http://localhost:3001/users
 
-## 🔐 Test Credentials
+---
 
-### Admin User
+## 👥 Test Accounts
 
-- **Email**: `admin@test.com`
-- **Password**: `admin123`
-- **Permissions**: Full access - create, edit, delete tasks, assign users
+| Role  | Email          | Password | Permissions    |
+| ----- | -------------- | -------- | -------------- |
+| Admin | admin@test.com | admin123 | Full access    |
+| User  | user@test.com  | user123  | Limited access |
+| User  | bob@test.com   | bob123   | Limited access |
 
-### Regular User
+---
 
-- **Email**: `user@test.com`
-- **Password**: `user123`
-- **Permissions**: View tasks, update task status only
+## 🎨 Features in Detail
 
-### Additional User
+### Authentication
 
-- **Email**: `bob@test.com`
-- **Password**: `bob123`
+- Form validation with real-time error messages
+- Protected routes (auto-redirect if not logged in)
+- Token stored in localStorage
+- Role-based permissions
 
-## 📚 API Endpoints
+### Task Management
 
-The mock API (JSON Server) provides the following endpoints:
+- **Create**: Admin can create new tasks with title, description, assignee, and status
+- **Read**: All users can view tasks in a grid layout
+- **Update**: Admin can edit all fields, users can update status only
+- **Search**: Real-time search by task title
+- **Filter**: Filter by status (Pending, In Progress, Completed)
+- **Pagination**: 6 tasks per page with navigation controls
 
-### Users
+### Theme System
 
-- `GET /users` - Get all users
-- `GET /users/:id` - Get user by ID
+- Light and dark mode
+- Smooth transitions between themes
+- Persistent preference (saved in localStorage)
+- System preference detection
 
-### Tasks
+### Responsive Design
 
-- `GET /tasks` - Get all tasks
-- `GET /tasks/:id` - Get task by ID
-- `POST /tasks` - Create new task
-- `PATCH /tasks/:id` - Update task
-- `DELETE /tasks/:id` - Delete task
+- Mobile-first approach
+- Touch-friendly UI elements
+- Hamburger menu on mobile
+- Grid layout adapts to screen size
 
-### Query Parameters
+---
 
-- `GET /tasks?title_like=search` - Search tasks by title
-- `GET /tasks?status=pending` - Filter by status
+## 📝 Troubleshooting
 
-## 🎨 Features Walkthrough
+**Problem: API not running**
 
-### 1. Login
+- Make sure you ran `npm run dev:all` or start the API separately with `npm run api`
+- Check if port 3001 is available
 
-- Navigate to `/login`
-- Use test credentials
-- Form validation in real-time
-- Error handling for invalid credentials
+**Problem: Can't login**
 
-### 2. Dashboard
+- Use exact test credentials listed above
+- Check browser console for errors
 
-- View all tasks in a grid layout
-- See task statistics (Pending, In Progress, Completed)
-- Use search to filter tasks by title
-- Use dropdown to filter by status
-- Paginate through tasks (6 per page)
+**Problem: Tasks not showing**
 
-### 3. Task Details
+- Ensure the API server is running on port 3001
+- Check if `db.json` file exists in the project root
 
-- Click any task card to view details
-- See full description and metadata
-- Edit task (based on role):
-  - Admin: Edit all fields
-  - User: Edit status only
-- Changes reflect immediately
+**Problem: Port already in use**
 
-### 4. Create Task (Admin Only)
+- Kill the process using port 3000 or 3001
+- Or change ports in `package.json` and `.env.local`
 
-- Click "Create Task" button
-- Fill in the form:
-  - Title (min 3 characters)
-  - Description (min 10 characters)
-  - Assign to user
-  - Set status
-- Validation errors shown in real-time
-- New task appears immediately
+---
 
-### 5. Profile
+## 📦 Prerequisites
 
-- View personal information
-- See role and permissions
-- User avatar with initials
+- **Node.js**: Version 18 or higher
+- **npm**: Comes with Node.js
 
-### 6. Theme Toggle
+---
 
-- Click sun/moon icon in header
-- Switch between light and dark modes
-- Preference saved in localStorage
+## 💡 Tips
 
-## 🛠️ Technologies Used
+- Use **Admin account** to see all features
+- Try creating, editing, and deleting tasks as an admin
+- Switch to **User account** to see the limited permissions
+- Test the search and filter functionality with multiple tasks
+- Toggle between light and dark themes to see the full design
 
-### Frontend
+---
 
-- **Next.js 14** (App Router)
-- **React 19**
-- **TypeScript**
-- **TailwindCSS** (v4)
-- **Redux Toolkit**
-- **React Redux**
-- **React Hook Form**
+## 🤝 Support
 
-### Development
+If you encounter any issues:
 
-- **JSON Server** (Mock API)
-- **ESLint** (Code quality)
-- **PostCSS** (CSS processing)
-- **Concurrently** (Run multiple scripts)
-
-## 📁 Project Structure Details
-
-### Components Organization
-
-- **`components/ui/`** - Reusable, presentation components
-- **`components/layout/`** - Layout-specific components
-- **`components/tasks/`** - Task feature components
-- **`components/auth/`** - Authentication components
-- **`components/providers/`** - Context providers
-
-### State Management
-
-- **`store/slices/authSlice.ts`** - Authentication state
-- **`store/slices/tasksSlice.ts`** - Tasks state and operations
-- **`store/slices/usersSlice.ts`** - Users state
-- **`store/index.ts`** - Store configuration
-
-### Custom Hooks
-
-- **`useRedux.ts`** - Typed Redux hooks
-- **`useTheme.ts`** - Theme management
-
-### Type Definitions
-
-- **`types/index.ts`** - All TypeScript interfaces and types
+1. Make sure all dependencies are installed: `npm install`
+2. Check that both servers are running: `npm run dev:all`
+3. Clear browser cache and localStorage
+4. Restart the development servers
