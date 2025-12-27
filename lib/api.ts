@@ -7,7 +7,8 @@ import {
   User,
 } from "@/types";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+// Use relative URLs - works with Next.js API routes in both dev and production
+const API_BASE_URL = "/api";
 
 class ApiError extends Error {
   constructor(public status: number, message: string) {
@@ -53,27 +54,11 @@ async function apiRequest<T>(
 // Auth API
 export const authApi = {
   login: async (credentials: LoginCredentials): Promise<LoginResponse> => {
-    // Mock login - check credentials against db.json users
-    const users = await apiRequest<User[]>("/users");
-    const user = users.find(
-      (u) =>
-        u.email === credentials.email &&
-        (u as any).password === credentials.password
-    );
-
-    if (!user) {
-      throw new ApiError(401, "Invalid email or password");
-    }
-
-    return {
-      token: `mock-token-${user.id}-${Date.now()}`,
-      user: {
-        id: user.id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-      },
-    };
+    // Use the users POST endpoint for login
+    return apiRequest<LoginResponse>("/users", {
+      method: "POST",
+      body: JSON.stringify(credentials),
+    });
   },
 
   logout: () => {
