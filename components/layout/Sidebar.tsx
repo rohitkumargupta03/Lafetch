@@ -88,11 +88,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         <div className="flex flex-col h-full">
           {/* Logo */}
           <div className="relative p-6 overflow-hidden">
-            <div className="absolute inset-0 bg-linear-to-br from-primary via-secondary to-blue-500 opacity-90"></div>
+            <div className="absolute inset-0 bg-[linear-gradient(135deg,var(--primary),var(--secondary))] opacity-90"></div>
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIgMS44LTQgNC00czQgMS44IDQgNC0xLjggNC00IDQtNC0xLjgtNC00eiIvPjwvZz48L2c+PC9zdmc+')] opacity-30"></div>
             <div className="relative flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg border border-white/30">
+                <div className="w-10 h-10 bg-[linear-gradient(135deg,var(--primary),var(--secondary))] rounded-xl flex items-center justify-center shadow-lg ring-2 ring-white/30">
                   <svg
                     className="w-6 h-6 text-white"
                     fill="none"
