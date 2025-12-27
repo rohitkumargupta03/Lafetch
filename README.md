@@ -23,10 +23,10 @@ npm install
 ### Step 2: Start the Application
 
 ```powershell
-npm run dev:all
+npm run dev
 ```
 
-This starts both the mock API server and the Next.js app.
+This starts the Next.js development server with built-in API routes.
 
 ### Step 3: Open in Browser
 
@@ -122,7 +122,9 @@ Visit **http://localhost:3000** and login with:
 
 **Backend:**
 
-- JSON Server (Mock API)
+- Next.js API Routes (Built-in)
+- In-memory data store (resets on deployment)
+- JSON Server (Optional, for local development only)
 
 ---
 
@@ -130,21 +132,25 @@ Visit **http://localhost:3000** and login with:
 
 ```
 task-management/
-├── app/                    # Next.js pages
-│   ├── dashboard/         # Dashboard page (task list)
-│   ├── login/            # Login page
-│   └── profile/          # User profile page
-├── components/            # React components
-│   ├── auth/             # Protected route component
-│   ├── layout/           # Sidebar, Header
-│   ├── tasks/            # Task cards, modals
-│   └── ui/               # Buttons, inputs, modals
-├── store/                # Redux state management
-│   └── slices/           # Auth, tasks, users slices
-├── lib/                  # API functions
-├── hooks/                # Custom React hooks
-├── types/                # TypeScript types
-└── db.json               # Mock database
+├── app/                    # Next.js app directory
+│   ├── api/              # API routes (backend)
+│   │   ├── data/        # In-memory data store
+│   │   ├── tasks/       # Task endpoints
+│   │   └── users/       # User & auth endpoints
+│   ├── dashboard/       # Dashboard page (task list)
+│   ├── login/           # Login page
+│   └── profile/         # User profile page
+├── components/           # React components
+│   ├── auth/            # Protected route component
+│   ├── layout/          # Sidebar, Header
+│   ├── tasks/           # Task cards, modals
+│   └── ui/              # Buttons, inputs, modals
+├── store/               # Redux state management
+│   └── slices/          # Auth, tasks, users slices
+├── lib/                 # API client functions
+├── hooks/               # Custom React hooks
+├── types/               # TypeScript types
+└── db.json              # Mock data (reference only)
 ```
 
 ---
@@ -152,20 +158,17 @@ task-management/
 ## 🛠️ Available Scripts
 
 ```powershell
-# Start everything (recommended)
-npm run dev:all
-
-# Start only the Next.js app
+# Start development server (recommended)
 npm run dev
-
-# Start only the API server
-npm run api
 
 # Build for production
 npm run build
 
 # Start production server
 npm run start
+
+# Optional: Run with JSON Server (local dev only)
+npm run dev:all
 ```
 
 ---
@@ -173,8 +176,12 @@ npm run start
 ## 🌐 Access URLs
 
 - **App**: http://localhost:3000
-- **API**: http://localhost:3001
-- **API Endpoints**: http://localhost:3001/tasks, http://localhost:3001/users
+- **API**: http://localhost:3000/api
+- **API Endpoints**:
+  - http://localhost:3000/api/tasks
+  - http://localhost:3000/api/users
+  - http://localhost:3000/api/tasks/[id]
+  - http://localhost:3000/api/users/[id]
 
 ---
 
@@ -219,55 +226,3 @@ npm run start
 - Touch-friendly UI elements
 - Hamburger menu on mobile
 - Grid layout adapts to screen size
-
----
-
-## 📝 Troubleshooting
-
-**Problem: API not running**
-
-- Make sure you ran `npm run dev:all` or start the API separately with `npm run api`
-- Check if port 3001 is available
-
-**Problem: Can't login**
-
-- Use exact test credentials listed above
-- Check browser console for errors
-
-**Problem: Tasks not showing**
-
-- Ensure the API server is running on port 3001
-- Check if `db.json` file exists in the project root
-
-**Problem: Port already in use**
-
-- Kill the process using port 3000 or 3001
-- Or change ports in `package.json` and `.env.local`
-
----
-
-## 📦 Prerequisites
-
-- **Node.js**: Version 18 or higher
-- **npm**: Comes with Node.js
-
----
-
-## 💡 Tips
-
-- Use **Admin account** to see all features
-- Try creating, editing, and deleting tasks as an admin
-- Switch to **User account** to see the limited permissions
-- Test the search and filter functionality with multiple tasks
-- Toggle between light and dark themes to see the full design
-
----
-
-## 🤝 Support
-
-If you encounter any issues:
-
-1. Make sure all dependencies are installed: `npm install`
-2. Check that both servers are running: `npm run dev:all`
-3. Clear browser cache and localStorage
-4. Restart the development servers
