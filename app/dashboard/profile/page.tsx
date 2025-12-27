@@ -14,24 +14,24 @@ export default function ProfilePage() {
   return (
     <ProtectedRoute>
       <DashboardLayout>
-        <div className="max-w-2xl mx-auto space-y-6">
+        <div className="max-w-xl mx-auto space-y-6">
           <div>
-            <h1 className="text-4xl font-bold text-gradient">Profile</h1>
+            <h1 className="text-3xl font-bold text-gradient">Profile</h1>
             <p className="text-gray-500 dark:text-gray-400 mt-2">
               View your profile information
             </p>
           </div>
 
-          <div className="bg-white/80 dark:bg-[#1a1632]/80 backdrop-blur-sm rounded-2xl shadow-xl dark:shadow-primary/5 border border-gray-200/50 dark:border-gray-700/30 p-8 space-y-8">
+          <div className="bg-white/80 dark:bg-[#1a1632]/80 backdrop-blur-sm rounded-2xl shadow-xl dark:shadow-primary/5 border border-gray-200/50 dark:border-gray-700/30 p-6 space-y-6">
             {/* Avatar */}
             <div className="flex justify-center">
               <div className="relative group">
-                <div className="h-32 w-32 rounded-2xl bg-[linear-gradient(90deg,var(--primary),var(--secondary))] flex items-center justify-center text-white text-5xl font-bold shadow-2xl shadow-primary/30 ring-4 ring-white dark:ring-gray-800 group-hover:scale-105 transition-transform duration-300">
+                <div className="h-20 w-20 rounded-xl bg-[linear-gradient(90deg,var(--primary),var(--secondary))] flex items-center justify-center text-white text-2xl font-bold shadow-xl shadow-primary/30 ring-4 ring-white dark:ring-gray-800 group-hover:scale-105 transition-transform duration-300">
                   {user.name.charAt(0).toUpperCase()}
                 </div>
-                <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-emerald-500 border-4 border-white dark:border-gray-800 rounded-xl flex items-center justify-center shadow-lg">
+                <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-emerald-500 border-3 border-white dark:border-gray-800 rounded-lg flex items-center justify-center shadow-lg">
                   <svg
-                    className="w-4 h-4 text-white"
+                    className="w-3 h-3 text-white"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -48,32 +48,32 @@ export default function ProfilePage() {
             </div>
 
             {/* Info */}
-            <div className="space-y-4">
-              <div className="bg-linear-to-r from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10 rounded-2xl p-5 border border-primary/10 dark:border-primary/20">
-                <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">
+            <div className="space-y-3">
+              <div className="bg-linear-to-r from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10 rounded-xl p-4 border border-primary/10 dark:border-primary/20">
+                <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1.5">
                   Name
                 </label>
-                <p className="text-xl font-bold text-gray-900 dark:text-white">
+                <p className="text-lg font-bold text-gray-900 dark:text-white">
                   {user.name}
                 </p>
               </div>
 
-              <div className="bg-linear-to-r from-secondary/5 to-purple-500/5 dark:from-secondary/10 dark:to-purple-500/10 rounded-2xl p-5 border border-secondary/10 dark:border-secondary/20">
-                <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">
+              <div className="bg-linear-to-r from-secondary/5 to-purple-500/5 dark:from-secondary/10 dark:to-purple-500/10 rounded-xl p-4 border border-secondary/10 dark:border-secondary/20">
+                <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1.5">
                   Email
                 </label>
-                <p className="text-xl font-bold text-gray-900 dark:text-white">
+                <p className="text-lg font-bold text-gray-900 dark:text-white">
                   {user.email}
                 </p>
               </div>
 
-              <div className="bg-linear-to-r from-emerald-500/5 to-teal-500/5 dark:from-emerald-500/10 dark:to-teal-500/10 rounded-2xl p-5 border border-emerald-500/10 dark:border-emerald-500/20">
-                <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">
+              <div className="bg-linear-to-r from-emerald-500/5 to-teal-500/5 dark:from-emerald-500/10 dark:to-teal-500/10 rounded-xl p-4 border border-emerald-500/10 dark:border-emerald-500/20">
+                <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1.5">
                   Role
                 </label>
                 <div className="flex items-center gap-2">
                   <div
-                    className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                    className={`w-7 h-7 rounded-lg flex items-center justify-center ${
                       user.role === "admin"
                         ? "bg-[linear-gradient(90deg,var(--primary),var(--secondary))] from-amber-400 to-orange-500"
                         : "bg-[linear-gradient(90deg,var(--primary),var(--secondary))]"
@@ -105,14 +105,14 @@ export default function ProfilePage() {
                       </svg>
                     )}
                   </div>
-                  <span className="text-xl font-bold text-gray-900 dark:text-white capitalize">
+                  <span className="text-lg font-bold text-gray-900 dark:text-white capitalize">
                     {user.role === "admin" ? "Administrator" : "Team Member"}
                   </span>
                 </div>
               </div>
 
-              <div className="bg-linear-to-r from-cyan-500/5 to-blue-500/5 dark:from-cyan-500/10 dark:to-blue-500/10 rounded-2xl p-5 border border-cyan-500/10 dark:border-cyan-500/20">
-                <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">
+              <div className="bg-linear-to-r from-cyan-500/5 to-blue-500/5 dark:from-cyan-500/10 dark:to-blue-500/10 rounded-xl p-4 border border-cyan-500/10 dark:border-cyan-500/20">
+                <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1.5">
                   User ID
                 </label>
                 <p className="text-sm text-gray-600 dark:text-gray-300 font-mono bg-white/50 dark:bg-gray-800/50 px-3 py-2 rounded-lg inline-block border border-gray-200/50 dark:border-gray-700/30">

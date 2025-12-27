@@ -41,7 +41,7 @@ export default function LoginPage() {
       <div className="max-w-md w-full space-y-8 animate-fade-in relative z-10">
         <div className="text-center">
           <div className="flex justify-center mb-6">
-            <div className="w-20 h-20 bg-linear-to-br from-primary via-secondary to-cyan-400 rounded-2xl flex items-center justify-center shadow-2xl shadow-primary/30 transform hover:scale-110 hover:rotate-3 transition-all duration-300">
+            <div className="w-20 h-20 bg-[linear-gradient(90deg,var(--primary),var(--secondary))] rounded-2xl flex items-center justify-center shadow-2xl shadow-primary/30 transform hover:scale-110 hover:rotate-3 transition-all duration-300">
               <svg
                 className="w-12 h-12 text-white"
                 fill="none"
