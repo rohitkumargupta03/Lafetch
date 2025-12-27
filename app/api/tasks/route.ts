@@ -47,9 +47,6 @@ export async function POST(request: Request) {
 
     return NextResponse.json(newTask, { status: 201 });
   } catch {
-    return NextResponse.json(
-      { message: "Invalid request" },
-      { status: 400 }
-    );
+    return NextResponse.json({ message: "Invalid request" }, { status: 400 });
   }
 }

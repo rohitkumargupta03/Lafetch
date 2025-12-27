@@ -10,10 +10,7 @@ export async function GET(
   const user = getUserById(id);
 
   if (!user) {
-    return NextResponse.json(
-      { message: "User not found" },
-      { status: 404 }
-    );
+    return NextResponse.json({ message: "User not found" }, { status: 404 });
   }
 
   // Remove password from response

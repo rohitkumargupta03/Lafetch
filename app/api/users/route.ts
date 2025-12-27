@@ -34,9 +34,6 @@ export async function POST(request: Request) {
       user: safeUser,
     });
   } catch {
-    return NextResponse.json(
-      { message: "Invalid request" },
-      { status: 400 }
-    );
+    return NextResponse.json({ message: "Invalid request" }, { status: 400 });
   }
 }

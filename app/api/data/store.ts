@@ -135,7 +135,9 @@ export function getTaskById(id: string): Task | undefined {
   return dataStore.tasks.find((task) => task.id === id);
 }
 
-export function createTask(task: Omit<Task, "id" | "createdAt" | "updatedAt">): Task {
+export function createTask(
+  task: Omit<Task, "id" | "createdAt" | "updatedAt">
+): Task {
   const newTask: Task = {
     ...task,
     id: String(Date.now()),
